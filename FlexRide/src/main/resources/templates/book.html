@@ -1,0 +1,163 @@
+
+ <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Booking - FLEXRIDE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x500/?luxury-car') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            font-weight: bold;
+        }
+
+        .table thead {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+            transition: 0.3s;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">FLEXRIDE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img th:src="@{/images/profile-user.png}" alt="User" class="profile-img">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-2" th:href="@{/user/logout}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-center">
+        <h1 class="display-4">Book Your Dream Ride</h1>
+    </section>
+
+    <!-- Car Listing Table -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Available Cars</h2>
+
+        <!-- Show message if no cars are available -->
+        <div th:if="${carsList == null or carsList.isEmpty()}" class="alert alert-warning text-center">
+            No cars available at the moment.
+        </div>
+        
+        <!-- Display Success Message -->
+        <div th:if="${bookingSuccess}" class="alert alert-success text-center mt-3">
+            [[${bookingSuccess}]]
+        </div>
+
+        <table th:if="${carsList != null and not carsList.isEmpty()}" class="table table-bordered table-hover text-center">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Company</th>
+                    <th>Price Per Day</th>
+                    <th>Book</th>
+              
+                  </tr>
+            </thead>
+            <tbody>
+                <tr th:each="car : ${carsList}">
+                    <td th:text="${car.id}"></td>
+                    <td th:text="${car.name}"></td>
+                    <td th:text="${car.model}"></td>
+                    <td th:text="${car.company}"></td>
+                 	
+                    <td class="fw-bold text-primary">₹ <span th:text="${car.pricePerDay}"></span> / day</td>
+   
+                    <td th:if="${!car.isBooked}">
+                        <form th:action="@{/car/book/{carId}(carId=${car.id})}" method="post">
+                            <input type="hidden" name="userId" th:value="${session.userId}" />
+            	          Start Date:<input type="datetime-local" name="crdt" required="required"/><br/><br/>          
+                	      End Date:<input type="datetime-local" name="rrdt"/ required="required"><br/><br/>
+                	      &nbsp;&nbsp;
+                            <button type="submit" class="btn btn-success">
+                          		 BOOKING
+            	    
+                            </button>
+         	
+                        </form>
+                    </td>
+            			<td th:if="${car.isBooked}">
+                        <form th:action="@{/car/book/{carId}(carId=${car.id})}" method="post">
+                            <input type="hidden" name="userId" th:value="${session.userId}" />
+            
+                            <button type="submit" class="btn btn-danger" th:text="${car.isBooked?'BOOKED':'NOT BOOKED'}" disabled="disabled">
+                            
+                            </button>
+         	
+                        </form>
+                    </td>
+                    
+
+                </tr>
+            </tbody>
+        </table>
+        
+        
+
+        <!-- Display Error Message -->
+        <div th:if="${bookingError}" class="alert alert-danger text-center mt-3">
+            [[${bookingError}]]
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <p>&copy; 2025 FLEXRIDE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

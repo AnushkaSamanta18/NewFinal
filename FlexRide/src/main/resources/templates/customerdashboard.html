@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEXRIDE</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/styles1.css}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg  py-3">
+        <div class="container">
+            <a class="navbar-brand sm-3" href="#" >FLEXRIDE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collection">Collection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                          <img th:src="@{/images/profile-user.png}" alt="User" style="width:20px; height:20px; border-radius:40%;">
+                          
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-2" th:href="@{/logout}">Logout</a>
+                    </li>
+                    
+                     
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section text-center text-white">
+        <div class="container">
+            <h1 class="display-4" style="color:white;">FLEXRIDE</h1>
+            <em><p>Your premier service for all car rental needs</p></em>
+        </div>
+        <div class="container">
+            <h3>Contact Us to book now</h3>
+            <a class="btn btn-outline-info" th:href="@{/car/booking}">Book Ride</a>
+        </div>
+    </div>
+
+    
+
+    
+
+    <!-- Collection Section -->
+    <section id="collection" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Explore Our Collection Cars</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Thar-ROXX/8438/1723692413550/front-left-side-47.jpg" class="img-fluid" alt="Mahindra Thar">
+                        <h5>Mahindra Thar</h5>
+                        <p>Rs.5,000/Day</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Scorpio-N/10817/1690351800434/front-left-side-47.jpg" class="img-fluid" alt="Mahindra Scorpio">
+                        <h5>Mahindra Scorpio</h5>
+                        <p>Rs.4,500/Day</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Honda/Amaze/12185/1733724733157/front-left-side-47.jpg" class="img-fluid" alt="Honda Amaze">
+                        <h5>Honda Amaze</h5>
+                        <p>Rs.3,000/Day</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Audi/Q7/12198/1732789850926/front-left-side-47.jpg" class="img-fluid" alt="Audi Q7">
+                        <h5>Audi Q7</h5>
+                        <p>Rs.10,000/Day</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Hyundai/Verna/9744/1694602806760/front-left-side-47.jpg?tr=w-664" class="img-fluid" alt="Hyundai Verna">
+                        <h5>Hyundai Verna</h5>
+                        <p>Rs.8,000/Day</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Skoda/Slavia/11810/1718773567443/front-left-side-47.jpg" class="img-fluid" alt="Skoda Slavia">
+                        <h5>Skoda Slavia</h5>
+                        <p>Rs.9,000/Day</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Flexride. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

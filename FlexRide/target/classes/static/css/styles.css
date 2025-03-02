@@ -1,0 +1,167 @@
+/* General Styles */
+body {
+    font-family: "ubuntu";
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+
+.navbar-brand {
+    font-size: 250% !important;
+}
+#navbarNav{
+    right: 1000px;
+}
+/* Hero Section */
+.hero-section {
+    background: url('https://www.topgear.com/sites/default/files/news-listicle/image/2018/09/new_speed_record_for_specially_prepared_beetle_lsr_-13591.jpg?w=848&h=477') no-repeat center center/cover;
+    padding: 150px;
+    
+    text-align: center;
+    height: 500px !important;
+    
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px ) {
+    .hero-section {
+        padding: 60px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 3rem;
+        
+    }
+}
+
+/* Services Section */
+#services {
+    background: #f8f9fa;
+    padding: 50px 0;
+}
+
+.service-box {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.service-box h5 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .service-box {
+        padding: 15px;
+    }
+}
+
+
+/* Collection Section */
+#collection {
+    padding: 50px 0;
+}
+
+.car-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.car-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.car-card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 576px) {
+    .car-card h5 {
+        font-size: 1rem;
+    }
+
+    .car-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Footer */
+footer {
+    background: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+
+/*customer login*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-weight: bold;
+    color: #333;
+}
+
+label {
+    font-size: 14px;
+    color: #555;
+}
+
+button.btn-dark {
+    background-color: #333;
+    border: none;
+}
+
+button.btn-dark:hover {
+    background-color: #555;
+}
+
+button.btn-outline-secondary {
+    border-color: #ccc;
+    color: #555;
+}
+
+button.btn-outline-secondary:hover {
+    border-color: #888;
+    color: #333;
+}
+
+.bg-warning {
+    background-color: #fdd835 !important;
+}
+
+.contact{
+    background-color: #3E5879;
+}
+.dashboard{
+    background-color: #3E5879;
+}
